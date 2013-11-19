@@ -84,7 +84,7 @@ class Matriz
 	
 	# Metodo para hallar el maximo de una matriz
 	def max
-		acum = -9999999999999999
+		acum
 		for i in 0...filas
 			for j in 0...colum
 				if self.pos[i][j] != nil
@@ -99,7 +99,7 @@ class Matriz
 	
 	# Metodo para hallar el minimo de una matriz
 	def min
-		acum = 99999999999999999
+		acum
 		for i in 0...filas
 			for j in 0...colum
 				if self.pos[i][j] != nil
@@ -152,7 +152,7 @@ class Matriz
 				elemento << fila
 			end
 		end
-		Matriz.new(@nfil, other.ncol, elemento)
+		Densa.new(@nfil, other.ncol, elemento)
 	end
 	
 	# Metodo para multiplicar una matriz por un escalar
@@ -178,7 +178,7 @@ class Matriz
 			end
 			elemento << fila
 		end
-		Matriz.new(@ncol, @nfil, elemento)
+		Densa.new(@ncol, @nfil, elemento)
 	end
 	
 	
