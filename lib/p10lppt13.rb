@@ -35,18 +35,25 @@ class Matriz
 	# Metodo para sumar dos matrices
 	def +(other)
 		if ((@nfil != other.nfil) || (@ncol != other.ncol))
-			puts "No se pueden sumar las matrices"
-		else
-			elemento = Array.new(0)
+			puts "No se pueden restar las matrices"
+		else 
+		  elemento = Array.new(0)
 			for i in 0...filas
 				fila = Array.new(0)
 				for j in 0...colum
-					fila << pos[i][j] + other.pos[i][j]
+					if self.pos[i][j] == nil && other.pos[i][j] != nil
+					    fila << other.pos[i][j]
+					elsif self.pos[i][j] != nil && other.pos[i][j] == nil
+					    fila << pos[i][j]
+					elsif self.pos[i][j] == nil && other.pos[i][j] == nil
+					    fila << 0
+					else
+					    fila << pos[i][j] + other.pos[i][j]
+					end      			   
 				end
 				elemento << fila
 			end
-		end
-		Matriz.new(@nfil, @ncol, elemento)
+		Densa.new(@nfil, @ncol, elemento)
 	end	
 	
 	# Metodo para restar dos matrices
@@ -189,28 +196,28 @@ end
 
 # Clase de Matrices Dispersas
 class Dispersa < Matriz
-	attr_reader :matrix
-
+	attr_reader :pos
+	
 	def initialize(nfil, ncol, h = {})
 		super(nfil, ncol)
-		@matrix = Hash.new({})
+		@pos = Hash.new({})
 		for k in h.keys do 
-		@matrix[k] = if h[k].is_a? VectorDisperso
+		@pos[k] = if h[k].is_a? VectorDisperso
 						h[k]
 					 else 
-						@matrix[k] = VectorDisperso.new(h[k])
+						@pos[k] = VectorDisperso.new(h[k])
                      end
 		end
 	end
 
 	def [](i)
-		@matrix[i]
+		@pos[i]
 	end
 
 	def col(j)
 		c = {}
-		for r in @matrix.keys do
-			c[r] = @matrix[r].vector[j] if @matrix[r].vector.keys.include? j
+		for r in @pos.keys do
+			c[r] = @pos[r].vector[j] if @pos[r].vector.keys.include? j
 		end
 		VectorDisperso.new c
 	end
