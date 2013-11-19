@@ -1,6 +1,4 @@
-
 require "fraccion.rb"
-
 
 class Matriz
 
@@ -173,10 +171,48 @@ end
 
 # Clase de Vectores dispersos
 class VectorDisperso
+	attr_reader :vector
 	
+	def initialize(h = {})
+		@vector = Hash.new(0)
+		@vector = @vector.merge!(h)
+	end
+
+	def [](i)
+		@vector[i] 
+	end
+
+	def to_s
+		@vector.to_s
+	end
 end
 
 # Clase de Matrices Dispersas
 class Dispersa < Matriz
+	attr_reader :matrix
+
+	def initialize(nfil, ncol, h = {})
+		super(nfil, ncol)
+		@matrix = Hash.new({})
+		for k in h.keys do 
+		@matrix[k] = if h[k].is_a? VectorDisperso
+						h[k]
+					 else 
+						@matrix[k] = VectorDisperso.new(h[k])
+                     end
+		end
+	end
+
+	def [](i)
+		@matrix[i]
+	end
+
+	def col(j)
+		c = {}
+		for r in @matrix.keys do
+			c[r] = @matrix[r].vector[j] if @matrix[r].vector.keys.include? j
+		end
+		VectorDisperso.new c
+	end
 	
 end
