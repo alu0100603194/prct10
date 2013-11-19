@@ -129,43 +129,9 @@ class Fraccion
 		self.to_f <=> other.to_f
 	end
 	
-=begin
-	# Comprobamos si la matriz implicita es menor que la recibida
-	def <(other)
-		if (self.numer/self.denomin) < (other.numer/other.denomin) 
-			true  
-		else
-			false				
-		end
+	def coerce(other)
+		aux = Fraccion.new(other,1)
+		[aux,self]
 	end
-    
-	# Comprobamos si la matriz implicita es mayor que la recibida
-	def >(other)
-		if((self.numer/self.denomin)<(other.numer/other.denomin))
-			false				
-		else
-			true
-		end
-	end
- 
-	# Comprobamos que la matriz implicita es menor o igual que la recibida
-	def <=(other)
-		if((self.numer/self.denomin)<=(other.numer/other.denomin))
-			true				
-		else  
-			false
-		end
-    end
- 
-    # Comprobamos que la matriz implicita es mayor o igual que la recibida
-    def >=(other)
-		if((self.numer/self.denomin)>=(other.numer/other.denomin))
-			true
-		else 
-			false
-		end
-    end
-    
-=end
 
 end

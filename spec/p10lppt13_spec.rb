@@ -5,6 +5,12 @@ describe Matriz do
                 @m1 = Densa.new(2,2,[[1,2],[3,4]])
                 @m2 = Densa.new(3,3,[[1,2,4],[6,5,8],[2,5,3]])
                 @m3 = Dispersa.new(3,3, 0 => { 0 => 2, 2 => 1 })
+                @m4 = Densa.new(3,3,[[-1,-2,-4],[-3,-5,-1],[-2,-5,-3]])
+                @f1 = Fraccion.new(1,2)
+                @f2 = Fraccion.new(3,2)
+                @f3 = Fraccion.new(5,2)
+                @mf1 = Densa.new(2,2,[[@f1,@f2],[@f3,@f1]])
+                @mf2 = Densa.new(2,2,[[@f1,@f2],[@f1,@f2]])
         end
         
         # Comprobacion de que se crea bien la matriz
@@ -71,5 +77,47 @@ describe Matriz do
             end  
         end
         
+        describe "Maximo y minimo" do
+            it "Maximo dispersa" do
+				@m3.max.to_s.should eq("2")
+            end  
+            it "Minimo dispersa" do
+				@m3.min.to_s.should eq("0")
+            end  
+             it "Maximo densa" do
+				@m1.max.to_s.should eq("4")
+            end  
+            it "Minimo densa" do
+				@m1.min.to_s.should eq("1")
+            end
+            it "Maximo densa con valores negativos" do
+				@m4.max.should eq(-1)
+            end  
+            it "Minimo densa con valores negativos" do
+				@m4.min.should eq(-5)
+            end 
+        end
+        
+        describe "Operaciones con matrices con fracciones" do
+			it "Comprobamos que realiza bien la traspuesta" do
+				@aux = Densa.new(2,2,[[@f1,@f3],[@f2,@f1]])
+				@mf1.trasponer.to_s.should eq(@aux.to_s)
+			end
+			it "Comprobamos la suma" do
+				@aux = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
+				@af1 = Fraccion.new(1,1)
+				@af2 = Fraccion.new(2,1)
+				@af3 = Fraccion.new(3,1)
+				@aux3 = Densa.new(2,2,[[@af1,@af2],[@af3,@af1]])
+				@aux2 = @mf1+@aux
+				@aux2.to_s.should eq(@aux3.to_s)
+			end
+			it "Comprobamos la multiplicacion" do
+				@aux = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
+				@aux2 = @aux.porf(@aux)
+				@aux3 = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
+				@aux2.to_s.should eq(@aux3.to_s)
+			end
+        end
         
 end

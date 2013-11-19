@@ -80,7 +80,37 @@ class Matriz
 			end
 		Densa.new(@nfil, @ncol, elemento)
 		end
-	end	
+	end
+	
+	# Metodo para hallar el maximo de una matriz
+	def max
+		acum = -9999999999999999
+		for i in 0...filas
+			for j in 0...colum
+				if self.pos[i][j] != nil
+					if pos[i][j] > acum
+						acum = pos[i][j]
+					end
+				end     			   
+			end
+		end
+		acum
+	end
+	
+	# Metodo para hallar el minimo de una matriz
+	def min
+		acum = 99999999999999999
+		for i in 0...filas
+			for j in 0...colum
+				if self.pos[i][j] != nil
+					if pos[i][j] < acum
+						acum = pos[i][j]
+					end
+				end     			   
+			end
+		end
+		acum
+	end
 	
 	# Metodo para multiplicacion dos matrices
 	def por(other)
