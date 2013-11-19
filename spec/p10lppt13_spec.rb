@@ -53,6 +53,22 @@ describe Matriz do
 				@aux=@m3+@m3
 				@aux.to_s.should eq("4\t0\t2\t\n0\t0\t0\t\n0\t0\t0\t\n")
             end      
+            it "Resta de dos matrices densas" do
+				@aux= @m1+@m1
+				@aux2 = @aux-@m1
+				@aux2.to_s.should eq(@m1.to_s)
+            end
+		
+			it "Resta de matriz densa y matriz dispersa" do
+				@aux=@m2-@m3
+				@aux.to_s.should eq("-1\t2\t3\t\n6\t5\t8\t\n2\t5\t3\t\n")
+            end
+		
+			it "Resta de dos matrices dispersas" do
+				@aux=@m3+@m3
+				@aux2=@aux-@m3
+				@aux2.to_s.should eq("2\t0\t1\t\n0\t0\t0\t\n0\t0\t0\t\n")
+            end  
         end
         
         

@@ -35,7 +35,7 @@ class Matriz
 	# Metodo para sumar dos matrices
 	def +(other)
 		if ((@nfil != other.nfil) || (@ncol != other.ncol))
-			puts "No se pueden restar las matrices"
+			puts "No se pueden sumar las matrices"
 		else 
 		  elemento = Array.new(0)
 			for i in 0...filas
@@ -61,18 +61,26 @@ class Matriz
 	def -(other)
 		if ((@nfil != other.nfil) || (@ncol != other.ncol))
 			puts "No se pueden restar las matrices"
-		else
-			elemento = Array.new(0)
+		else 
+		  elemento = Array.new(0)
 			for i in 0...filas
 				fila = Array.new(0)
 				for j in 0...colum
-					fila << pos[i][j] - other.pos[i][j]
+					if self.pos[i][j] == nil && other.pos[i][j] != nil
+						fila << -other.pos[i][j]
+					elsif self.pos[i][j] != nil && other.pos[i][j] == nil
+						fila << pos[i][j]
+					elsif self.pos[i][j] == nil && other.pos[i][j] == nil
+						fila << 0
+					else
+						fila << pos[i][j] - other.pos[i][j]
+					end     			   
 				end
 				elemento << fila
 			end
+		Densa.new(@nfil, @ncol, elemento)
 		end
-		Matriz.new(@nfil, @ncol, elemento)
-	end
+	end	
 	
 	# Metodo para multiplicacion dos matrices
 	def por(other)
