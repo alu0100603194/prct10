@@ -38,21 +38,21 @@ describe Matriz do
                 end
         end
 	
-	 describe "Operaciones aritméticas" do
-                it "Suma de dos matrices densas" do
-		     @aux= @m1+@m1
-		     @aux.to_s.should eq("2\t4\t\n6\t8\t\n")
-                end
+	 describe "Operaciones aritmeticas" do
+            it "Suma de dos matrices densas" do
+				@aux= @m1+@m1
+				@aux.to_s.should eq("2\t4\t\n6\t8\t\n")
+            end
 		
-		it "Suma de matriz densa y matriz dispersa" do
-		    @aux=@m2+@m3
-		    @aux.to_s.should eq("3\t2\t5\t\n6\t5\t8\t\n2\t5\t3\t\n")
-                end
+			it "Suma de matriz densa y matriz dispersa" do
+				@aux=@m2+@m3
+				@aux.to_s.should eq("3\t2\t5\t\n6\t5\t8\t\n2\t5\t3\t\n")
+            end
 		
-		it "Suma de dos matrices dispersas" do
-		    @aux=@m3+@m3
-		    @aux.to_s.should eq(" ")
-                end      
+			it "Suma de dos matrices dispersas" do
+				@aux=@m3+@m3
+				@aux.to_s.should eq("4\t0\t2\t\n0\t0\t0\t\n0\t0\t0\t\n")
+            end      
         end
         
         

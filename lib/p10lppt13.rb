@@ -42,18 +42,19 @@ class Matriz
 				fila = Array.new(0)
 				for j in 0...colum
 					if self.pos[i][j] == nil && other.pos[i][j] != nil
-					    fila << other.pos[i][j]
+						fila << other.pos[i][j]
 					elsif self.pos[i][j] != nil && other.pos[i][j] == nil
-					    fila << pos[i][j]
+						fila << pos[i][j]
 					elsif self.pos[i][j] == nil && other.pos[i][j] == nil
-					    fila << 0
+						fila << 0
 					else
-					    fila << pos[i][j] + other.pos[i][j]
-					end      			   
+						fila << pos[i][j] + other.pos[i][j]
+					end     			   
 				end
 				elemento << fila
 			end
 		Densa.new(@nfil, @ncol, elemento)
+		end
 	end	
 	
 	# Metodo para restar dos matrices
