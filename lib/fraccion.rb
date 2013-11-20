@@ -49,11 +49,11 @@ class Fraccion
     #  Funciones de igualdad, absoluto, reciproco y opuesto     #
     #############################################################
     
-=begin
     # Funcion de comparar igualdad: Comparamos la fraccion implicita, con la que le pasamos como parametro
     def ==(other)
-		other.simplificar
-		self.simplificar
+		if other.class.to_s != "Fraccion"
+			other = Fraccion.new(other,1)
+		end
 		if ((@numer == other.numer) and (@denomin == other.denomin))
 			true		# Si el numerador y el denominador de la implicita coinciden con los 
 						# de la pasada por parametro, entonces las fracciones son iguales (true)
@@ -61,7 +61,6 @@ class Fraccion
 			false		# Si no, son distintas (false)
 		end  
     end
-=end
   
 	# Funcion que devuelve la funcion en valor absoluto
 	def absoluto

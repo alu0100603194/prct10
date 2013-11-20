@@ -82,19 +82,19 @@ class Matriz
 		end
 	end
 	
-	# Metodo para hallar el maximo de una matriz
-	def max
-		i,j=0,0
-		acum = 0
-		for i in 0...filas
-			for j in 0...colum
+	def primervalor
+		for i in 0...@nfil
+			for j in 0...@nncol
 				if (self.pos[i][j] != nil) 
-				    acum = self.pos[i][j]
-				    break
+				    return self.pos[i][j]
 				end
 			end
 		end
-	 
+	end
+	
+	# Metodo para hallar el maximo de una matriz
+	def max
+		acum = pos[0][0]
 		for i in 0...filas
 			for j in 0...colum
 				if self.pos[i][j] != nil
@@ -109,7 +109,7 @@ class Matriz
 	
 	# Metodo para hallar el minimo de una matriz
 	def min
-		acum = 9999999999999999999999999
+		acum = pos[0][0]
 		for i in 0...filas
 			for j in 0...colum
 				if self.pos[i][j] != nil
@@ -259,7 +259,9 @@ class Dispersa < Matriz
                      end
 		end
 	end
-
+=begin
+for i in self.pos.keys do
+=end
 	def [](i)
 		@pos[i]
 	end
