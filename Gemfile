@@ -1,8 +1,9 @@
-source 'https://rubygems.org'
+source "http://rubygems.org"
+
+# Specify your gem's dependencies in p10lppt13.gemspec
+gemspec
 
 gem 'rake'
 gem 'rspec'
 gem 'guard'
 gem 'guard-rspec'
-gem 'guard-bundler'
-gem 'guard-gitpusher'

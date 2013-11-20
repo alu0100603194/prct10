@@ -1,4 +1,6 @@
 $:.unshift File.dirname(__FILE__) + 'lib'
+require "bundler/gem_tasks"
+require 'rspec/core/rake_task'
 
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
@@ -19,7 +21,7 @@ task :thtml do
   sh "rspec -I. spec/p10lppt13_spec.rb --format html"
 end
 
-desc "Ejecutando las pruebas para el codigo de Matrices"
+desc "Ejecutando las pruebas unitarias para el codigo de Matrices"
 task :test do
   sh "ruby -Ilib -Itest test/tc_p10lppt13.rb"
 end
