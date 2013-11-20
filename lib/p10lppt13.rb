@@ -85,14 +85,13 @@ class Matriz
 	# Metodo para hallar el maximo de una matriz
 	def max
 		i,j=0,0
-	
-		while (i<filas)
-			while(j<colum)
+		acum = 0
+		for i in 0...filas
+			for j in 0...colum
 				if (self.pos[i][j] != nil) 
 				    acum = self.pos[i][j]
-				    j++
+				    break
 				end
-			i++
 			end
 		end
 	 
@@ -110,7 +109,7 @@ class Matriz
 	
 	# Metodo para hallar el minimo de una matriz
 	def min
-		acum
+		acum = 9999999999999999999999999
 		for i in 0...filas
 			for j in 0...colum
 				if self.pos[i][j] != nil
