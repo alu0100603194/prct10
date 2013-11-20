@@ -3,8 +3,8 @@ require "fraccion.rb"
 class Matriz
 
 	attr_reader :nfil, :ncol
-
 	# Metodo initilize de la clase base
+	$acum
 	def initialize(nfil, ncol)
 		@nfil = nfil
 		@ncol = ncol
@@ -84,7 +84,18 @@ class Matriz
 	
 	# Metodo para hallar el maximo de una matriz
 	def max
-		acum
+		i,j=0,0
+	
+		while (i<filas)
+			while(j<colum)
+				if (self.pos[i][j] != nil) 
+				    acum = self.pos[i][j]
+				    j++
+				end
+			i++
+			end
+		end
+	 
 		for i in 0...filas
 			for j in 0...colum
 				if self.pos[i][j] != nil
@@ -200,6 +211,7 @@ class Densa < Matriz
 	
 	attr_reader :pos
 	
+
 	def initialize(nfil, ncol, pos)
 		super(nfil, ncol)
 		@pos = Array.new(pos)
