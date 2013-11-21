@@ -10,16 +10,16 @@ Alumnos:
 ##Jerarquía de la práctica
     .
     ├── bin
-    │   └── Practica9
+    │   └── P10lppt13
     ├── Gemfile
     ├── .git
     ├── .gitignore
     ├── lib
-    │   ├── Practica9
+    │   ├── P10lppt13
     │   │   └── version.rb
-    │   └── Practica9.rb
+    │   └── P10lppt13.rb
     ├── LICENSE.txt
-    ├── Practica9.gemspec
+    ├── P10lppt13.gemspec
     ├── Rakefile
     ├── README.md
     ├── .README.md.kate-swp
@@ -31,9 +31,6 @@ Alumnos:
     y en la que se encontrarán los métodos comunes a ambas subclases, que según el porcentaje de
     elementos que sean igual a cero, se tratará de un tipo de matriz u otro.
     
-    
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
