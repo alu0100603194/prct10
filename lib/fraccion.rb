@@ -96,7 +96,12 @@ class Fraccion
 	end
 	
 	# Realizamos la suma de la fraccion implicita con recibida como parametro
-	def +(other)                                                                     		          
+	def +(other)             
+		if(other.instance_of?Fixnum)
+                        temp=other
+                        other=Fraccion.new(temp,1)
+                end
+		
 		aux = mcm(@denomin, other.denomin)                                                    
 		temp = Fraccion.new(((aux/@denomin)*@numer)+((aux/other.denomin)*other.numer),aux)               
 		temp.simplificar
@@ -131,8 +136,8 @@ class Fraccion
 	end
 	
 	def coerce(other)
-		aux = Fraccion.new(other,1)
-		[aux,self]
+		#aux = Fraccion.new(other,1)
+		[self,other]
 	end
 
 end

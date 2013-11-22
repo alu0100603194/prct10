@@ -104,12 +104,13 @@ describe Matriz do
 				@mf1.trasponer.to_s.should eq(@aux.to_s)
 			end
 			it "Comprobamos la suma" do
-				@aux = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
-				@af1 = Fraccion.new(1,1)
-				@af2 = Fraccion.new(2,1)
-				@af3 = Fraccion.new(3,1)
-				@aux3 = Densa.new(2,2,[[@af1,@af2],[@af3,@af1]])
-				@aux2 = @mf1+@aux
+				@aux = Densa.new(2,2,[[1,2],[3,4]])
+				@af1 = Fraccion.new(3,2)
+				@af2 = Fraccion.new(7,2)
+				@af3 = Fraccion.new(11,2)
+				@af4 = Fraccion.new(9,2)
+				@aux3 = Densa.new(2,2,[[@af1,@af2],[@af3,@af4]])
+				@aux2 = @aux+@mf1
 				@aux2.to_s.should eq(@aux3.to_s)
 			end
 			it "Comprobamos la multiplicacion" do
