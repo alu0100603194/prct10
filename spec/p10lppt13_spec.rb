@@ -11,6 +11,7 @@ describe Matriz do
                 @f3 = Fraccion.new(5,2)
                 @mf1 = Densa.new(2,2,[[@f1,@f2],[@f3,@f1]])
                 @mf2 = Densa.new(2,2,[[@f1,@f2],[@f1,@f2]])
+		@disper = Dispersa.new(2,2, 0 => { 0 => @f1 })
         end
 
         # Comprobacion de que se crea bien la matriz
@@ -119,11 +120,15 @@ describe Matriz do
 				@aux3 = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
 				@aux2.to_s.should eq(@aux3.to_s)
 			end
-=begin			it "Comprobamos el maximo" do
-				@aux = Densa.new(2,2,[[@af1,1],[@af3,@af1]])
+			it "Comprobamos el maximo" do
+				@aux = Densa.new(2,2,[[@f1,1],[@f3,@f1]])
 				@aux.max.should eq(@f3)
 			end
-=end
+			it "Comprobamos el minimo" do
+				@aux = Densa.new(2,2,[[1,@f2],[@f3,@f1]])
+				@aux.min.should eq(@f1)
+			end
+
         end
         
 end
