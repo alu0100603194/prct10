@@ -117,8 +117,7 @@ describe Matriz do
  			it "Comprobamos la multiplicacion" do
  				@aux = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
  				@aux2 = @aux.porf(@aux)
- 				@aux3 = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
- 				@aux2.to_s.should eq(@aux3.to_s)
+ 				@aux2.to_s.should eq("1/4\t1/2\t\n1/4\t1/2\t\n")
  			end
 			it "Comprobamos el maximo" do
 				@aux = Densa.new(2,2,[[@f1,1],[@f3,@f1]])
