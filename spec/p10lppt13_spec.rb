@@ -114,12 +114,12 @@ describe Matriz do
 				@aux2 = @aux+@mf1
 				@aux2.to_s.should eq(@aux3.to_s)
 			end
-# 			it "Comprobamos la multiplicacion" do
-# 				@aux = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
-# 				@aux2 = @aux.porf(@aux)
-# 				@aux3 = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
-# 				@aux2.to_s.should eq(@aux3.to_s)
-# 			end
+ 			it "Comprobamos la multiplicacion" do
+ 				@aux = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
+ 				@aux2 = @aux.porf(@aux)
+ 				@aux3 = Densa.new(2,2,[[@f1,@f1],[@f1,@f1]])
+ 				@aux2.to_s.should eq(@aux3.to_s)
+ 			end
 			it "Comprobamos el maximo" do
 				@aux = Densa.new(2,2,[[@f1,1],[@f3,@f1]])
 				@aux.max.should eq(@f3)
@@ -131,7 +131,7 @@ describe Matriz do
 
         end
 	
-	describe "Modificación de la practica" do
+	describe "Modificacion de la practica" do
 	  it "Suma de una matriz densa con enteros y una dispersa con fracciones" do
 	      @aux = Dispersa.new(2,2, 0 => { 0 => @f1 })
 	      @aux1 = Densa.new(2,2,[[1,1],[1,1]])

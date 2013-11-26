@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    p10lppt13 (0.1.0)
+    p10lppt13 (1.0.0)
 
 GEM
   remote: http://rubygems.org/

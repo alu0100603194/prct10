@@ -1,26 +1,27 @@
 require "fraccion.rb"
 
+# Clase base Matriz, que guarda el numero de filas y columnas
 class Matriz
 
 	attr_reader :nfil, :ncol
+	
 	# Metodo initilize de la clase base
-	$acum
 	def initialize(nfil, ncol)
 		@nfil = nfil
 		@ncol = ncol
 	end
 	
-	# Getter de nfil
+	# Getter de nfil (devuelve el numero de filas de la matriz)
 	def filas
 		@nfil
 	end
 	
-	# Getter de ncol
+	# Getter de ncol (devuelve el numero de columnas de la matriz)
 	def colum
 		@ncol
 	end
 	
-	# Metodo para convertir la matriz a string
+	# Metodo para convertir la matriz a string (a una cadena)
 	def to_s
 		aux = ""
 		@nfil.times do |i|
@@ -32,8 +33,9 @@ class Matriz
 		aux
 	end
 	
-	# Metodo para sumar dos matrices
+	# Metodo para sumar dos matrices (si tienen la misma dimension)
 	def +(other)
+		# Primero se comprueba si se pueden sumar (si tienen la misma dimension)
 		if ((@nfil != other.nfil) || (@ncol != other.ncol))
 			puts "No se pueden sumar las matrices"
 		else 
@@ -57,8 +59,9 @@ class Matriz
 		end
 	end	
 	
-	# Metodo para restar dos matrices
+	# Metodo para restar dos matrices (si tienen la misma dimension)
 	def -(other)
+		# Primero se comprueba si se pueden sumar (si tienen la misma dimension)
 		if ((@nfil != other.nfil) || (@ncol != other.ncol))
 			puts "No se pueden restar las matrices"
 		else 
@@ -92,7 +95,7 @@ class Matriz
 		end
 	end
 	
-	# Metodo para hallar el maximo de una matriz
+	# Metodo para hallar el valor maximo de una matriz
 	def max
 		acum = pos[0][0]
 		for i in 0...filas
@@ -107,7 +110,7 @@ class Matriz
 		acum
 	end
 	
-	# Metodo para hallar el minimo de una matriz
+	# Metodo para hallar el valor minimo de una matriz
 	def min
 		acum = pos[0][0]
 		for i in 0...filas
@@ -128,12 +131,14 @@ class Matriz
 			puts "No se pueden multiplicarr las matrices"
 		else
 			elemento = Array.new(0)
-			for i in 0...nfil
+			@nfil.times do |i|
 				fila = Array.new(0)
-				for j in 0...other.ncol
+				other.ncol.times do |j|
 					aux = 0
-					for k in 0...ncol
-						aux += pos[i][k] * other.pos[k][j]
+					@ncol.times do |k|
+						if self.pos[i][k] != nil && other.pos[i][k] != nil
+							aux += pos[i][k] * other.pos[k][j]
+						end
 					end
 					fila << aux
 				end
