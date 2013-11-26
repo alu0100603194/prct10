@@ -38,9 +38,9 @@ class Matriz
 			puts "No se pueden sumar las matrices"
 		else 
 		  elemento = Array.new(0)
-			for i in 0...filas
+			@nfil.times do |i|
 				fila = Array.new(0)
-				for j in 0...colum
+				@ncol.times do |j|
 					if self.pos[i][j] == nil && other.pos[i][j] != nil
 						fila << other.pos[i][j]
 					elsif self.pos[i][j] != nil && other.pos[i][j] == nil
@@ -63,9 +63,9 @@ class Matriz
 			puts "No se pueden restar las matrices"
 		else 
 		  elemento = Array.new(0)
-			for i in 0...filas
+			@nfil.times do |i|
 				fila = Array.new(0)
-				for j in 0...colum
+				@ncol.times do |j|
 					if self.pos[i][j] == nil && other.pos[i][j] != nil
 						fila << -other.pos[i][j]
 					elsif self.pos[i][j] != nil && other.pos[i][j] == nil
