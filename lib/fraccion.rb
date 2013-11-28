@@ -3,7 +3,7 @@ require "gcd.rb"
 #############################################################
 # Clase Fraccion de la practica #7 de LPP                   #
 #############################################################
-
+#Clase para crear instancias de Fraccion
 class Fraccion 
   
     attr_reader :numer, :denomin
@@ -125,16 +125,19 @@ class Fraccion
     #  menor o igual y mayor o igual)
     #############################################################
   
+	#Operador para obtener el resto
 	def %(other)										#Obtenemos el resto de la division de dos fracciones								
 		aux1 = self.numer * other.denomin				#Multiplicamos el numerador de la primera entre el denominador de la segunda
 		aux2 = self.denomin * other.numer				#Multiplicamos el denominador de la primera entre el numerador de la segunda
 		resto = aux1%aux2								#Obtenemos el Resto de la fraccion resultante
 	end
 	
+	#Operador comparable
 	def <=>(other)
 		self.to_f <=> other.to_f
 	end
 	
+	#Metodo coerce para cambiar instancia por parametro.
 	def coerce(other)
 		#aux = Fraccion.new(other,1)
 		[self,other]

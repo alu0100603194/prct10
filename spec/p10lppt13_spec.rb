@@ -1,5 +1,6 @@
 require "p10lppt13.rb"
 
+#Espectativas de la clase Matriz
 describe Matriz do
         before :each do
                 @m1 = Densa.new(2,2,[[1,2],[3,4]])

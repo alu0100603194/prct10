@@ -2,8 +2,11 @@ require "fraccion.rb"
 
 # Clase base Matriz, que guarda el numero de filas y columnas
 class Matriz
-
-	attr_reader :nfil, :ncol
+	
+	#Variable que almacena el numero de filas de la matriz
+	attr_reader :nfil
+	#Variable que almacena el numero de columnas de la matriz
+	attr_reader :ncol
 	
 	# Metodo initilize de la clase base
 	def initialize(nfil, ncol)
@@ -224,6 +227,7 @@ end
 # Clase de Matrices Densas
 class Densa < Matriz
 	
+	#Vector que almacena los valores de la matriz(Array de arrays, en el que cada array es una fila).
 	attr_reader :pos
 
 	# Constructor de la clase Matriz Densa
@@ -246,6 +250,8 @@ end
 
 # Clase de Vectores dispersos
 class VectorDisperso
+  
+	#Vector que almacena los valores de la matriz.
 	attr_reader :vector
 	
 	# Constructor de la clase VectorDisperso
@@ -267,6 +273,8 @@ end
 
 # Clase de Matrices Dispersas
 class Dispersa < Matriz
+  
+	#Vector que almacena los valores de la matriz(Array de arrays, en el que cada array es una fila).
 	attr_reader :pos
 	
 	# Constructor de la clase Matriz Dispersa
