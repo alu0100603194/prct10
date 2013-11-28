@@ -1,4 +1,4 @@
-require "gcd.rb"
+#require "gcd.rb"
 
 #############################################################
 # Clase Fraccion de la practica #7 de LPP                   #
@@ -19,6 +19,14 @@ class Fraccion
       @numer, @denomin = n, d
     end
 	
+	#Maximo comun divisor
+	def gcd(u, v)
+	  u, v = u.abs, v.abs
+	  while v != 0
+		u , v = v, u % v
+	  end
+	  u
+	end
 	#############################################################
     #  Funciones basicas de la clase                            #
     #############################################################
