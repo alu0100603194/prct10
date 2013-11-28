@@ -3,8 +3,10 @@ require "p10lppt13.rb"
 
 require "test/unit"
 
+# Clase con las pruebas unitarias de la practica
 class TestP10lppt13 < Test::Unit::TestCase
 
+  # Metodo de los tests 
   def test_prueba
     
     @m1 = Densa.new(2,2,[[1,2],[3,4]])
