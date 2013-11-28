@@ -6,11 +6,15 @@ require "gcd.rb"
 #Clase para crear instancias de Fraccion
 class Fraccion 
   
-    attr_reader :numer, :denomin
+    # Variable que almacena el numerador de la fraccion
+    attr_reader :numer
+    # Variable que almacena el denominador de la fraccion
+    attr_reader :denomin
     
     # Incluimos el módulo Comparable
     include Comparable
   
+    # Metodo de inicializacion de la clase Fraccion
     def initialize(n,d) 
       @numer, @denomin = n, d
     end
