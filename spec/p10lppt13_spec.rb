@@ -140,5 +140,13 @@ describe Matriz do
 	      @aux2.to_s.should eq(@aux3.to_s)
 	  end
 	end
+	
+	describe "Modificacion" do
+		it "Encontrar el primer elemento que multiplicado por si mismo sea mayor que 6" do
+			@aux = Densa.new(2,3,[[2,2,9],[7,8,4]])
+			@aux2 = Array.new([0,2])
+			@aux.encontrar{|e| e*e > 6}.should eq(@aux2)
+		end
+	end
         
 end

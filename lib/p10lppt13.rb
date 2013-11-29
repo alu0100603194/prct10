@@ -35,6 +35,18 @@ class Matriz
 		end
 		aux
 	end
+        
+	def encontrar
+		@nfil.times do |i|
+			@ncol.times do |j|
+				if (self.pos[i][j] != nil) 
+				    if yield(pos[i][j]) 
+						return [i,j]
+					end 
+				end
+			end
+		end
+	end
 	
 	# Metodo para sumar dos matrices (si tienen la misma dimension)
 	def +(other)
